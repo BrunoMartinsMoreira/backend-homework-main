@@ -1,5 +1,5 @@
 import { Proposal } from 'src/core/proposals/repositories/entities/proposal.entity';
-import { User } from 'src/core/users/entities/user.entity';
+import { User } from 'src/core/users/repositories/entities/user.entity';
 import {
   Column,
   Entity,
