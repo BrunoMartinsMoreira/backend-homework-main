@@ -1,5 +1,5 @@
 import { Customer } from 'src/core/customers/repositories/entities/customer.entity';
-import { User } from 'src/core/users/entities/user.entity';
+import { User } from 'src/core/users/repositories/entities/user.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 export enum ProposalStatus {
@@ -14,10 +14,10 @@ export class Proposal {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => User, (user) => user.proposals)
+  @ManyToOne(() => User, (user) => user.proposals, { eager: true })
   userCreator: User;
 
-  @ManyToOne(() => Customer, (customer) => customer.proposals)
+  @ManyToOne(() => Customer, (customer) => customer.proposals, { eager: true })
   customer: Customer;
 
   @Column({ nullable: false, type: 'decimal', default: 0 })
